@@ -12,11 +12,30 @@ Trace size adapts to contents.
 Examples
 --------
 
-[traceit.js examples](http://valleybazaar.org/)
+[traceit.js examples](http://valleybazaar.org/index.html#tracebox)
+
+Usage:
+------
+
+$('#elem').data('trace');
+
+var inst = $('#elem').data('trace');
+
+inst.myMethod();
+
+$("#elem").trigger("myEvent");
+	
+Can I have callbacks? Sure. 
+
+$('#elem').trace({  
+	onClick : function(){ console.log('triggered when user clicks on a trace shape.'); }, 
+	hideCallback : function(){ console.log('triggered when hide animation completes.'); },
+	endTraceCallback: function() { console.log("triggered when trace animation completes."); },
+});
 
 Author
 ------
-Yuna Portnoy / http://valleybazaar.org/index.html#tracebox
+Yuna Portnoy / [valleybazaar.org](http://valleybazaar.org/)
 
 Licence
 -------
