@@ -17,7 +17,7 @@ Examples
 Usage:
 ------
 
-```
+```JavaScript
 $('#elem').data('trace');
 var inst = $('#elem').data('trace');
 inst.myMethod();
