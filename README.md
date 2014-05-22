@@ -18,7 +18,10 @@ Usage:
 ------
 
 ```JavaScript
+//Initialize a trace instance with:
 $('#elem').trace();
+
+//you can later refer to it buy doing:
 var inst = $('#elem').data('trace');
 inst.myMethod();
 $("#elem").trigger("myEvent");
