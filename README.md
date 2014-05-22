@@ -51,25 +51,20 @@ Methods are actions taken on ```trace``` instances.
 Methods can be called directly or by triggering the following events: ```hide.trace```, ```show.trace```, ```adjust.trace```.
 
 ```JavaScript
-
 //to hide the trace shape do:
 $("#elem").trigger("hide.trace");
-
 //or call HideTrace method directly:
 ints.HideTrace();
 
 //to show previously initialized trace shape do:
 $("#elem").trigger("show.trace");
-
 //or call ShowTrace method directly:
 inst.ShowTrace();
 
 //to replay trace animation do:
 $("#elem").trigger({ type: 'adjust.trace', adjustments: adjustments_object});
-
 //or call reTrace(opt) method directly:
 inst.reTrace(adjustments_object)
-
 ```
 
 To call the onClick callback function do:
