@@ -1,11 +1,11 @@
-traceit
+traceit.js
 =======
 
 
 traceit.js is a jQuery plugin based on raphael.js that allows you dynamically trace page elements.
+It was written using jQuery prototypal inheritance plugin boilerplate Authors: Alex Sexton & Scott Gonzalez.
 
-Add a dynamic trace to any element on a page; configure its stroke width, animation speed, stroke/fill color and opacity as well as hideCallback, 
-endTraceCallback and onClick callback functions.
+traceit.js adds a dynamic trace to any element on a page; configure its stroke width, animation speed, stroke/fill color and opacity as well as hideCallback, endTraceCallback and onClick callback functions.
 
 Trace size adapts to contents. 
 
@@ -24,7 +24,7 @@ inst.myMethod();
 $("#elem").trigger("myEvent");
 ```	
 
-What can I configure? All options are optional. Here are the default options. You can overwrite each and every one of them trace constructor accepts the following options object.
+What can I configure? All options are optional. Here are the default options. You can overwrite each and every one of them. The ```trace``` constructor accepts the following options object.
 
 ```JavaScript
 options: {
