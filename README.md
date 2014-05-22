@@ -21,7 +21,7 @@ Usage:
 //Initialize a trace instance with:
 $('#elem').trace();
 
-//you can later refer to it buy doing:
+//you can later refer to it by doing:
 var inst = $('#elem').data('trace');
 inst.myMethod();
 $("#elem").trigger("myEvent");
@@ -48,23 +48,42 @@ options: {
 
 ####  Methods and Events
 Methods are actions taken on ```trace``` instances.
+Methods can be called directly or by triggering the following events: ```hide.trace```, ```show.trace```, ```adjust.trace```.
 
 ```JavaScript
-//to replay trace animation call inst.reTrace(opt)
-inst.reTrace({stroke: color, 'stroke-width': 2, 'stroke-opacity': 1, 'isVisible' : 'true' });
-
-//to call the onClick callback function do:
-inst.click(); 
-//or we can use the following:  						
-$('#elem').trigger('click.trace');
-//or
-$('#elem').click();
 
 //to hide the trace shape do:
+$("#elem").trigger("hide.trace");
 
+//or call HideTrace method directly:
+ints.HideTrace();
+
+//to show previously initialized trace shape do:
+$("#elem").trigger("show.trace");
+
+//or call ShowTrace method directly:
+inst.ShowTrace();
+
+//to replay trace animation do:
+$("#elem").trigger({ type: 'adjust.trace', adjustments: adjustments_object});
+
+//or call reTrace(opt) method directly:
+inst.reTrace(adjustments_object)
+
+```
+
+To call the onClick callback function do:
+
+```JavaScript
+$("#elem").trigger("click.trace");
 //or
-$('#elem').trigger('hide.trace');
+inst.click();
+```
 
+We can delete ```trace``` instance by triggering "delete.trace" event. 
+
+```JavaScript
+$("#elem").trigger("delete.trace");
 ```
 
 #### Callbacks
