@@ -19,11 +19,8 @@ Usage:
 
 ```
 $('#elem').data('trace');
-
 var inst = $('#elem').data('trace');
-
 inst.myMethod();
-
 $("#elem").trigger("myEvent");
 ```	
 
