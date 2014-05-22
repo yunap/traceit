@@ -36,7 +36,8 @@ options: {
 		    trace_div_pref: "_wrap",
 		    trace_cursor: 'pointer',
 		    trace_opt: { 'stroke': 'yellow', 'stroke-width': 5, 
-		    		 'stroke-opacity': 1, 'fill': 'none', 							 				 'fill-opacity': 0, 'zindex': 9999},
+        	    'stroke-opacity': 1, 'fill': 'none',
+        	    'fill-opacity': 0, 'zindex': 9999},
 		    isVisible: true,
 		    useRelativePositioning : false, // will position relative to the document by default
 		    hideCallback: function() { console.log("From hide Callback") },
@@ -45,8 +46,27 @@ options: {
 		  }
 ```
 
+### Methods are actions taken on ```trace``` instances.
 
-Can I have callbacks? Sure. 
+```JavaScript
+//to replay trace animation call inst.reTrace(opt)
+inst.reTrace({stroke: color, 'stroke-width': 2, 'stroke-opacity': 1, 'isVisible' : 'true' });
+
+//to call the onClick callback function do:
+inst.click(); 
+//or we can use the following:  						
+$('#elem').trigger('click.trace');
+//or
+$('#elem').click();
+
+//to hide the trace shape do:
+
+//or
+$('#elem').trigger('hide.trace');
+
+```
+
+### Can I have callbacks? Sure. 
 
 ```JavaScript
 $('#elem').trace({  
