@@ -28,7 +28,6 @@ $("#elem").trigger("myEvent");
 ```	
 
 What can I configure? All options are optional. Here are the default options. You can overwrite each and every one of them. The ```trace``` constructor accepts the following options object.
-
 ```JavaScript
 options: {
 		    trace_canvas_padding: 10,
@@ -49,7 +48,6 @@ options: {
 ####  Methods and Events
 Methods are actions taken on ```trace``` instances.
 Methods can be called directly or by triggering the following events: ```hide.trace```, ```show.trace```, ```adjust.trace```.
-
 ```JavaScript
 //to hide the trace shape do:
 $("#elem").trigger("hide.trace");
@@ -68,7 +66,6 @@ inst.reTrace(adjustments_object)
 ```
 
 To call the onClick callback function do:
-
 ```JavaScript
 $("#elem").trigger("click.trace");
 //or
@@ -76,14 +73,12 @@ inst.click();
 ```
 
 We can delete ```trace``` instance by triggering "delete.trace" event. 
-
 ```JavaScript
 $("#elem").trigger("delete.trace");
 ```
 
 #### Callbacks
 Can I have callbacks? Sure. 
-
 ```JavaScript
 $('#elem').trace({  
 	onClick : function(){ console.log('triggered when user clicks on a trace shape.'); }, 
