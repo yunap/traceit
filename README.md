@@ -46,7 +46,8 @@ options: {
 		  }
 ```
 
-### Methods are actions taken on ```trace``` instances.
+####  Methods and Events
+Methods are actions taken on ```trace``` instances.
 
 ```JavaScript
 //to replay trace animation call inst.reTrace(opt)
@@ -66,7 +67,8 @@ $('#elem').trigger('hide.trace');
 
 ```
 
-### Can I have callbacks? Sure. 
+#### Callbacks
+Can I have callbacks? Sure. 
 
 ```JavaScript
 $('#elem').trace({  
