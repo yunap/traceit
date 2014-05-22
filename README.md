@@ -17,6 +17,7 @@ Examples
 Usage:
 ------
 
+```
 $('#elem').data('trace');
 
 var inst = $('#elem').data('trace');
@@ -24,14 +25,18 @@ var inst = $('#elem').data('trace');
 inst.myMethod();
 
 $("#elem").trigger("myEvent");
-	
+```	
+
 Can I have callbacks? Sure. 
 
+```
 $('#elem').trace({  
 	onClick : function(){ console.log('triggered when user clicks on a trace shape.'); }, 
 	hideCallback : function(){ console.log('triggered when hide animation completes.'); },
 	endTraceCallback: function() { console.log("triggered when trace animation completes."); },
 });
+
+```
 
 Author
 ------
