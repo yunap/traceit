@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Traceit.js example</title>
+		<meta name="description" content="Examples and documentation on traceit.js">
+		<meta name="author" content="Yuna">
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+		<link rel="stylesheet" href="style.css">
+	</head>
+
+	<body>
+		<div class="main">
+			<header>
+				<div id="example_title"><h1>Examples and documentation on traceit.js</h1></div>
+			</header>
+			
+            <p>
+    		Include the traceit.js script and it's dependencies (jquery.js (tested with 1.10.2), Raphael JS (tested with 2.1.2) ) in your site.
+			</p>
+			
+<div class="primary-content">
+<pre class="prettyprint">			
+&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">&lt;/script>
+&lt;script src="../js/raphael.js">&lt;/script>
+&lt;script src="../js/traceit.js">&lt;/script>
+</pre>
+</div>
+
+<p>Add id="example" element to your html file</p>			
+<div class="primary-content">
+<pre class="prettyprint">
+&lt;div id="example">Let's trace this element.&lt;/div>
+</pre>
+</div>
+
+<p>If you would like to see your element be traced immediately initialize a trace instance with:</p>
+<div class="primary-content">
+<pre class="prettyprint">
+//Initialize a trace instance with:
+$('#example').trace();
+</pre>
+</div>
+			
+
+<p>Or initialize a trace instance with isVisible option set to false</p>
+<div class="primary-content">
+<pre class="prettyprint">
+//Initialize a trace instance with isVisible set to false
+$('#example').trace({ isVisible: false });
+//then later in your code you can call reTrace({ isVisible: true }) method
+var inst =  $('#example').data('trace');
+inst.reTrace({ isVisible: true });
+//or trigger its equivalent 'adjust.trace' event
+$('#example').trigger('adjust.trace');
+</pre>
+</div>
+
+
+			<div class="content">
+			<p>	To trace this element <a id="trace_example" href="#">click here</a>.</p>
+			<div id="example" class="example"> #example </div>			
+			</div>
+			
+<p>What can I configure? All options are optional. You can overwrite default options by initializing 'trace' instance with options object 'trace_opt'.
+</p>
+<div class="primary-content">
+<pre class="prettyprint">
+//Initialize a trace instance with options object.
+$('#example2').trace(
+{ 
+	trace_opt : { 
+		'stroke': 'blue', 
+		'stroke-width': 3, 
+		'stroke-opacity': 1, 
+		'fill': '#00ff00', 
+		'fill-opacity': 0.2
+	},
+	redrawspeed : 6000,
+	trace_canvas_padding: 4
+});
+</pre>
+</div>
+<div class="content">
+			<p><a id="trace_example2" href="#">click to trace</a>.</p>
+			<div id="example2" class="example"> #example2 </div>		
+		</div>
+		
+<p>You can similarly set new options when calling reTrace method or when triggering 'adjust.trace' event</p>
+<div class="primary-content">
+<pre class="prettyprint">
+var inst =  $('#example3').data('trace');
+inst.reTrace({stroke: 'red', 'stroke-width': 2, 'stroke-opacity': 1, 'isVisible' : 'true' });
+//or trigger 'adjust.trace' event
+$('#example3').trigger(
+{ 
+	type: 'adjust.trace', 
+	adjustments: 
+		{ 
+		'stroke': '#aa0000', 
+		'stroke-width': 4, 
+		'stroke-opacity': 1 
+		}
+});	
+</pre>
+</div>
+
+		<div class="content">
+			<p><a id="trace_example3" href="#">click to trace</a>.</p>
+			<div id="example3" class="example"> #example3 </div>		
+		</div>
+			
+		<div  class="footer">
+				<p>
+					&copy; Copyright  by Yuna Portnoy
+				</p>
+		</div>
+		
+		
+	    
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="../js/raphael.js"></script>
+		<script src="../js/traceit.js"></script>
+		<script src="example.js"></script>
+		
+		<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=desert&callback=testing"></script>
+	</body>
+</html>

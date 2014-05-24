@@ -47,69 +47,69 @@
 		    redrawspeed: 3500,
 		    trace_div_pref: "_wrap",
 		    trace_cursor: 'pointer',
-		    trace_opt: { 'stroke': 'yellow', 'stroke-width': 5, 'stroke-opacity': 1, 'fill': 'none', 'fill-opacity': 0, 'zindex': 9999},
+		    trace_opt: { 'stroke': 'green', 'stroke-width': 2, 'stroke-opacity': 1, 'fill': 'none', 'fill-opacity': 0, 'zindex': 9999},
 		    isVisible: true,
 		    useRelativePositioning : false, // will position relative to the document by default
 		    hideCallback: function() { console.log("From hide Callback") },
 		    endTraceCallback: function() { console.log("From end Trace Callback") },
-		    onClick: function(me) { me.ClickTrace(); /*me.options.shape.animate({opacity: 0}, 1000, function(){ me.HideTrace(); }); */ },		
+		    onClick: function(me) { me.ClickTrace(); /*me.options.shape.animate({opacity: 0}, 1000, function(){ me.HideTrace(); }); */ }
 		  },
 		  
 		  _build: function(){
 		  
 		    this.options.id_to_trace = this.elem.id;
 		    this.options.wrap_id_to_trace = this.elem.id  + this.options.trace_div_pref;
-		    this.options.trace_offcet = this.options.trace_canvas_padding/2;  //might need 2 offsets for x and for y
-		 	
-		 	var context = this.options.useRelativePositioning ? this.$elem.offsetParent() : null;
-					
-		    var canvas_w = parseInt(this.$elem.outerWidth()) + this.options.trace_canvas_padding;  
-		 	var canvas_h = parseInt(this.$elem.outerHeight()) + this.options.trace_canvas_padding; 
-		    var position = this.$elem.offset();  // .offset() gets position relative to document; .position();  is posision relative to a parent
-			var left = parseInt(position.left);
-			var top = parseInt(position.top);
-			
-			if( context ) {
-				var marginTop = Number(this.$elem.css('margin-top').replace("px", "")) || 0;
-				var marginLeft = Number(this.$elem.css('margin-left').replace("px", "")) || 0;
-				var offset = this.$elem.position();
-					offset.top += marginTop + context.scrollTop(); 
-					offset.left += marginLeft;
-				top = offset.top;
-				left = offset.left;
-			}
-			
-				 	
-		    if( (left - this.options.trace_offcet) > 0 ){
-		    	left = left - this.options.trace_offcet;
-		    }  
-		    	  
-		    if( (top - this.options.trace_offcet) > 0 ){
-		    	top = top - this.options.trace_offcet;
-		    }	    
-		     
-		    //should this go into a body container instead???? do we want to appened html if it is not there?   		
-		 	//$('#canvas_container').append("<div id='" + this.options.wrap_id_to_trace + "'></div>");
-		 	//var body = context ? context : "body";
-		 	var body = context ? context : this.$elem.parent();
-		 
-		 	$("<div id='" + this.options.wrap_id_to_trace + "'></div>").appendTo( body );
-		    $("#" + this.options.wrap_id_to_trace).css({
-		 		"height": canvas_h,
-		 		"width": canvas_w,
-		 		"position": "absolute", 
-		 		"z-index" : this.options.trace_opt.zindex,
-		 		"top" : top, 
-		 		"left": left
-		 		}); 
-		 					
-		 	if( this.options.isVisible === true ){
-		 		this.drawTrace();
-		 	} 
-		 	else {
-		 		all_shapes[this.options.wrap_id_to_trace] = {trace: null, isVisible : false, origin: this.elem.id};
+		    
+		    if( this.options.isVisible === false ) {
+		 		all_shapes[this.options.wrap_id_to_trace] = {trace: null, isVisible : false, origin: this.elem.id};		
+		 		 		
 		 	}
-		 	
+		    else {	
+			    this.options.trace_offcet = this.options.trace_canvas_padding/2;  //might need 2 offsets for x and for y
+			 	
+			 	var context = this.options.useRelativePositioning ? this.$elem.offsetParent() : null;
+						
+			    var canvas_w = parseInt(this.$elem.outerWidth()) + this.options.trace_canvas_padding;  
+			 	var canvas_h = parseInt(this.$elem.outerHeight()) + this.options.trace_canvas_padding; 
+			    var position = this.$elem.offset();  // .offset() gets position relative to document; .position();  is posision relative to a parent
+				var left = parseInt(position.left);
+				var top = parseInt(position.top);
+				
+				if( context ) {
+					var marginTop = Number(this.$elem.css('margin-top').replace("px", "")) || 0;
+					var marginLeft = Number(this.$elem.css('margin-left').replace("px", "")) || 0;
+					var offset = this.$elem.position();
+						offset.top += marginTop + context.scrollTop(); 
+						offset.left += marginLeft;
+					top = offset.top;
+					left = offset.left;
+				}
+				
+					 	
+			    if( (left - this.options.trace_offcet) > 0 ){
+			    	left = left - this.options.trace_offcet;
+			    }  
+			    	  
+			    if( (top - this.options.trace_offcet) > 0 ){
+			    	top = top - this.options.trace_offcet;
+			    }	    
+			     
+			 	//var body = context ? context : "body";
+			 	var body = context ? context : this.$elem.parent();
+			 
+			 	$("<div id='" + this.options.wrap_id_to_trace + "'></div>").appendTo( body );
+			    $("#" + this.options.wrap_id_to_trace).css({
+			 		"height": canvas_h,
+			 		"width": canvas_w,
+			 		"position": "absolute", 
+			 		"z-index" : this.options.trace_opt.zindex,
+			 		"top" : top, 
+			 		"left": left
+			 		}); 
+			 					
+			 	this.drawTrace();
+			
+			 }
 		 	var me = this;
 		 	this.traceitEvents( me );
 			
@@ -134,19 +134,20 @@
 			
 		  reTrace : function ( opt ) {
 		  	var me = this;
-		  	var trace_options = this.options.trace_opt;
+			  	
 		  	if( typeof opt === "object") {
-		  		 trace_options = $.extend( {}, this.options.trace_opt, opt );
-		  	}
-		  	
+		  			this.options.trace_opt = $.extend( {}, this.options.trace_opt, opt );
+		  		}
+		  		
+		  	//if reTrace is called on the ellement that was hidden by window resize
 		  	if( $("#" + this.options.wrap_id_to_trace).length !== 0 ) {
 		  		
 		  		if( this.options.shape !== null  && all_shapes[this.options.wrap_id_to_trace].stable == true ){
-		  			
+		  	
 		  			$("#" + this.options.wrap_id_to_trace).show();
 		  			all_shapes[this.options.wrap_id_to_trace].stable = false;
 		  			
-		   			var new_shape = animate_progressive_drawing( { guide_path: this.options.shape}, this.options.redrawspeed, trace_options, 
+		   			var new_shape = animate_progressive_drawing( { guide_path: this.options.shape}, this.options.redrawspeed, this.options.trace_opt, 
 		    														function(){ if( me.options.endTraceCallback != undefined ) 
 						    														me.options.endTraceCallback(); 
 						    													all_shapes[me.options.wrap_id_to_trace].stable = true; 
@@ -159,9 +160,10 @@
 		  			all_shapes[this.options.wrap_id_to_trace].isVisible = true;
 		  		}
 		  	}
-		  	else{ 		
-		  			this.options.isVisible = true;
-		  			this._build();
+		  	else { 
+		  				
+				this.options.isVisible = true;
+		  		this._build();
 		  	}
 		  },
 		  
@@ -188,14 +190,17 @@
 		  traceitEvents: function( me ) {
 		  
 				this.$elem.bind('hide.trace', function(event){
-					console.log("In hide.....");
-					me.HideTrace();
+					if( me.options.shape !== undefined ){
+						me.HideTrace();
+					}
 				});
 							
 				this.$elem.bind('adjust.trace',  function(event){			
-					if(event.adjustments && typeof event.adjustments === 'object'){
-							console.log("In adjust.trace 2.....");
+					if( event.adjustments && typeof event.adjustments === 'object' ){
 							me.reTrace(event.adjustments);
+					}
+					else {
+						me.reTrace();
 					}
 				});
 							
@@ -204,21 +209,29 @@
 				});
 				
 				this.$elem.bind('click.trace',  function(event){
+					if( me.options.shape !== undefined ){
 						me.options.shape.click(me.options.shape.node.onclick());
+					}
+						
 				});
 							
 				this.$elem.bind('delete.trace',  function(event){
-					this.options.shape.hide().remove();
-					$("#" + this.options.wrap_id_to_trace).hide().remove();	
+					if( me.options.shape !== undefined ){
+						this.options.shape.hide().remove();
+						$("#" + this.options.wrap_id_to_trace).hide().remove();	
+					}
 					// remove from all_shapes array :	
 					all_shapes.splice(this.options.wrap_id_to_trace, 1);									
 					this.$elem.removeData("trace");
+					
 				});
 				
 			},
 		  
 		  click: function() {
-		  	this.options.shape.click(this.options.shape.node.onclick());
+		  	if( this.options.shape !== undefined ){
+		  		this.options.shape.click(this.options.shape.node.onclick());
+		  	}
 		  } 
 		};
 		
