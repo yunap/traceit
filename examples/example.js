@@ -61,6 +61,21 @@
 		 
 	});
 	
-	
+	$("#trace_example4").click(function(e){
+		
+		e.preventDefault();
+		
+		var inst =  $('#example4').data('trace');
+		$('#example4').trace(
+		{  
+	        onClick : function( me ) { 
+							alert('triggered when user clicks on a trace shape.');
+							me.options.shape.animate({opacity: 0}, 1000, function(){ me.HideTrace();}); 
+						}, 
+			hideCallback : function(){ alert('triggered when hide animation completes.'); },
+			endTraceCallback: function() { alert("triggered when trace animation completes."); },
+		});
+		 
+	});
 	
 })(jQuery);

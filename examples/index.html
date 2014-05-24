@@ -113,6 +113,33 @@ $('#example3').trigger(
 			<p><a id="trace_example3" href="#">click to trace</a>.</p>
 			<div id="example3" class="example"> #example3 </div>		
 		</div>
+	
+
+<p>Can I have callbacks? Sure. </p>
+<div class="primary-content">
+<pre class="prettyprint">
+
+//or trigger 'adjust.trace' event
+$('#example4').trace(
+{  
+	onClick : function(me) { 
+		alert('triggered when user clicks on a trace shape.');
+		me.options.shape.animate({opacity: 0}, 1000, function(){ me.HideTrace(); }); 
+	}, 
+	hideCallback : function() { 
+		alert('triggered when hide animation completes.'); 
+	},
+	endTraceCallback: function() { 
+		alert("triggered when trace animation completes."); 
+	}
+});
+</pre>
+</div>
+
+		<div class="content">
+			<p><a id="trace_example4" href="#">click to trace</a>.</p>
+			<div id="example4" class="example"> #example4 </div>		
+		</div>
 			
 		<div  class="footer">
 				<p>

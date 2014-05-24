@@ -31,7 +31,7 @@ p {
   	margin-bottom: 20px;
 }
 
-#trace_example,  #trace_example2, #trace_example3, a, a:visited {
+#trace_example,  #trace_example2, #trace_example3, #trace_example4, a, a:visited {
 	
     padding: 0px 2px;
     font-size: 1.2em;
@@ -55,7 +55,15 @@ p {
 	border: 1px solid #E1E1E8;
 }
 
+#example3  {
+	width: 150px;
+	height: 100px;
+	padding: 20px;
+	text-align: center;	
+	border: 1px solid #E1E1E8;
+}
+
 .footer{
-	margin-top: 20px;
+	margin-top: 40px;
 	text-align: center;	
 }
