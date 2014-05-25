@@ -18,9 +18,15 @@ p {
   line-height: 1.25;
 }
 
-.primary-content > * {
+.primary-content  {
     max-width: 700px;
-    padding: 30px;
+    padding: 20px;
+    display: block; 
+    background-color: #333
+}
+
+pre.prettyprint{
+	border: 0;
 }
 
 .content  {
@@ -28,7 +34,7 @@ p {
     margin-right: auto;
   	margin-left: auto;
   	margin-top: 20px;
-  	margin-bottom: 20px;
+  	margin-bottom: 40px;
 }
 
 #trace_example,  #trace_example2, #trace_example3, #trace_example4, a, a:visited {
@@ -42,9 +48,9 @@ p {
 
 
 #example_title {
-	margin-top: auto;
+	padding: 20px;
 	text-align: center;
-	height: 50px;	
+	height: 70px;	
 }
 
 .example  {
@@ -55,12 +61,18 @@ p {
 	border: 1px solid #E1E1E8;
 }
 
-#example3  {
+#example31  {
 	width: 150px;
 	height: 100px;
 	padding: 20px;
 	text-align: center;	
-	border: 1px solid #E1E1E8;
+}
+
+.example3span  {
+//	margin-right: 200px;
+//	float: right;
+	padding: 30px;
+	text-align: center;	
 }
 
 .footer{

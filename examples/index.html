@@ -9,18 +9,20 @@
 		<title>Traceit.js example</title>
 		<meta name="description" content="Examples and documentation on traceit.js">
 		<meta name="author" content="Yuna">
-		<meta name="viewport" content="width=device-width; initial-scale=1.0">
-		<link rel="stylesheet" href="style.css">
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">		
+		<link rel="stylesheet" href="style.css" type="text/css" />
 	</head>
 
 	<body>
 		<div class="main">
 			<header>
-				<div id="example_title"><h1>Examples and documentation on traceit.js</h1></div>
+				<div><h1>Examples and Documentation on <span id="example_title">traceit.js</span></h1></div>
 			</header>
 			
             <p>
-    		Include the traceit.js script and it's dependencies (jquery.js (tested with 1.10.2), Raphael JS (tested with 2.1.2) ) in your site.
+    		Ok, so you just saw the title traced. This is how you do it: 
+    		<br>
+    		Include the traceit.js script and it's dependencies jQuery (tested with jquery.js 1.10.2), Raphaël (tested with raphael.js 2.1.2) ) in your page.
 			</p>
 			
 <div class="primary-content">
@@ -31,7 +33,7 @@
 </pre>
 </div>
 
-<p>Add id="example" element to your html file</p>			
+<p>Choose an element you would like to trace. For instance:</p>			
 <div class="primary-content">
 <pre class="prettyprint">
 &lt;div id="example">Let's trace this element.&lt;/div>
@@ -47,24 +49,28 @@ $('#example').trace();
 </div>
 			
 
-<p>Or initialize a trace instance with isVisible option set to false</p>
+<p>Or initialize a trace instance with 'isVisible' option set to false. Then later in your code you can call reTrace({isVisible: true}) method
+or trigger its equivalent 'adjust.trace' event to start the animation.
+</p>
 <div class="primary-content">
 <pre class="prettyprint">
 //Initialize a trace instance with isVisible set to false
 $('#example').trace({ isVisible: false });
+
 //then later in your code you can call reTrace({ isVisible: true }) method
 var inst =  $('#example').data('trace');
 inst.reTrace({ isVisible: true });
+
 //or trigger its equivalent 'adjust.trace' event
 $('#example').trigger('adjust.trace');
 </pre>
 </div>
 
 
-			<div class="content">
-			<p>	To trace this element <a id="trace_example" href="#">click here</a>.</p>
-			<div id="example" class="example"> #example </div>			
-			</div>
+<div class="content">
+<p>	To trace this element <a id="trace_example" href="#">click here</a>.</p>
+<div id="example" class="example"> #example </div>			
+</div>
 			
 <p>What can I configure? All options are optional. You can overwrite default options by initializing 'trace' instance with options object 'trace_opt'.
 </p>
@@ -85,18 +91,28 @@ $('#example2').trace(
 });
 </pre>
 </div>
+
 <div class="content">
-			<p><a id="trace_example2" href="#">click to trace</a>.</p>
-			<div id="example2" class="example"> #example2 </div>		
-		</div>
+<p><a id="trace_example2" href="#">click to trace</a>.</p>
+<div id="example2" class="example"> #example2 </div>		
+</div>
 		
 <p>You can similarly set new options when calling reTrace method or when triggering 'adjust.trace' event</p>
 <div class="primary-content">
 <pre class="prettyprint">
-var inst =  $('#example3').data('trace');
-inst.reTrace({stroke: 'red', 'stroke-width': 2, 'stroke-opacity': 1, 'isVisible' : 'true' });
+//$('#example31').trace({ isVisible: false });
+var inst =  $('#example31').data('trace');
+inst.reTrace(
+{
+	'stroke': 'red', 
+	'stroke-width': 2, 
+	'stroke-opacity': 1, 
+	'isVisible' : 'true' 
+});
+
 //or trigger 'adjust.trace' event
-$('#example3').trigger(
+//$('#example32').trace({ isVisible: false });
+$('#example32').trigger(
 { 
 	type: 'adjust.trace', 
 	adjustments: 
@@ -109,12 +125,12 @@ $('#example3').trigger(
 </pre>
 </div>
 
-		<div class="content">
-			<p><a id="trace_example3" href="#">click to trace</a>.</p>
-			<div id="example3" class="example"> #example3 </div>		
-		</div>
+<div class="content">
+<p><a id="trace_example3" href="#">click to trace</a></p>
+<div id="example31" class="example"> #example3_1 </div>	<span id="example32" class="example3span"> #example3_2 </span>		
+</div>
 	
-
+<br>
 <p>Can I have callbacks? Sure. </p>
 <div class="primary-content">
 <pre class="prettyprint">
@@ -122,6 +138,11 @@ $('#example3').trigger(
 //or trigger 'adjust.trace' event
 $('#example4').trace(
 {  
+	trace_opt : 
+	{  
+		'stroke-width': 4, 
+		'stroke-opacity': .5
+	},
 	onClick : function(me) { 
 		alert('triggered when user clicks on a trace shape.');
 		me.options.shape.animate({opacity: 0}, 1000, function(){ me.HideTrace(); }); 
@@ -137,7 +158,7 @@ $('#example4').trace(
 </div>
 
 		<div class="content">
-			<p><a id="trace_example4" href="#">click to trace</a>.</p>
+			<p><a id="trace_example4" href="#">click to trace</a> To call onClick callback function click on the shape.</p>
 			<div id="example4" class="example"> #example4 </div>		
 		</div>
 			

@@ -28,7 +28,7 @@
 		var myObject = {
 		  init: function( options, elem ) {
 		    // Mix in the passed-in options with the default options
-		    this.options = $.extend( {}, this.options, options );
+		    this.options = $.extend( true, {}, this.options, options );
 		
 		    // Save the element reference, both as a jQuery
 		    // reference and a normal reference
@@ -239,7 +239,10 @@
 				var this_shape = carluka;
 				
 				this_shape.data("name", id);
-				this_shape.node.onmouseover = function(){ this.style.cursor = 'pointer'; };
+				this_shape.node.onmouseover = function(){ 
+					this.style.cursor = 'pointer'; 
+				};
+				
 				this_shape.node.onclick = function(){  
 					if ( callback != undefined ) callback(me);	
 				};	

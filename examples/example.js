@@ -8,7 +8,8 @@
 		     
 		       $('#example_title').trace();
 		       $('#example').trace({ isVisible: false });
-		       $('#example3').trace({ isVisible: false });
+		       $('#example31').trace({ isVisible: false });
+		       $('#example32').trace({ isVisible: false });
 	    
 		    }
 	};
@@ -47,8 +48,11 @@
 		
 		e.preventDefault();
 		
-		var inst =  $('#example3').data('trace');
-		$('#example3').trigger(
+		var inst1 =  $('#example31').data('trace');
+		inst1.reTrace({ 'stroke': '#880000', 'stroke-width': 2, 'stroke-opacity': 1, 'isVisible' : 'true' });
+
+		$('#example32').data('trace');
+		$('#example32').trigger(
 		{ 
 			type: 'adjust.trace', 
 			adjustments: 
@@ -65,9 +69,12 @@
 		
 		e.preventDefault();
 		
-		var inst =  $('#example4').data('trace');
 		$('#example4').trace(
 		{  
+		trace_opt : {  
+				'stroke-width': 4, 
+				'stroke-opacity': .5
+		}, 
 	        onClick : function( me ) { 
 							alert('triggered when user clicks on a trace shape.');
 							me.options.shape.animate({opacity: 0}, 1000, function(){ me.HideTrace();}); 
