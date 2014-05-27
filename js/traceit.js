@@ -348,29 +348,6 @@
 		    return result;
 		}
 		
-		
-		// Object.create support test, and fallback for browsers without it
-		if ( typeof Object.create !== 'function' ) {
-		    Object.create = function (o) {
-		        function F() {}
-		        F.prototype = o;
-		        return new F();
-		    };
-		}
-		
-		
-		// Create a plugin based on a defined object
-		$.traceit = function( name, object ) {
-		  $.fn[name] = function( options ) {
-		    return this.each(function() {
-		      if ( ! $.data( this, name ) ) {
-		        $.data( this, name, Object.create(object).init( 
-		        options, this ) );
-		      }
-		    });
-		  };
-		};
-		
 		$(document).bind('keyup.trace',function(event){ // Pressing the escape key will redraw all the traces
 				if(event.keyCode === 27){
 					$.each(all_shapes, function(index,object) {
@@ -409,6 +386,29 @@
 					}
 			});
 		});
+		
+		
+		// Object.create support test, and fallback for browsers without it
+		if ( typeof Object.create !== 'function' ) {
+		    Object.create = function (o) {
+		        function F() {}
+		        F.prototype = o;
+		        return new F();
+		    };
+		}
+		
+		
+		// Create a plugin based on a defined object
+		$.traceit = function( name, object ) {
+		  $.fn[name] = function( options ) {
+		    return this.each(function() {
+		      if ( ! $.data( this, name ) ) {
+		        $.data( this, name, Object.create(object).init( 
+		        options, this ) );
+		      }
+		    });
+		  };
+		};
 		
 		
 		// 
