@@ -29,7 +29,7 @@
 "docs": "https://github.com/yunap/traceit",
 "download": "https://github.com/yunap/traceit",
 "dependencies": {
-"jquery": ">=1.7",
+"jquery": ">=1.8",
 "raphael": ">=2.1"
 }
 }
