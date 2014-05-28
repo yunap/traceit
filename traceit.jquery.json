@@ -1,0 +1,35 @@
+{
+"name": "traceit",
+"title": "traceit",
+"description": "jQuery plugin for adding a dynamic trace to any element on a page.",
+"keywords": [
+"trace",
+"animation"
+],
+"version": "0.1.0",
+"author": {
+"name": "Yuna Portnoy",
+"url": "https://github.com/yunap/traceit"
+},
+"maintainers": [
+{
+"name": "Yuna Portnoy",
+"email": "yunay@yahoo.com",
+"url": "http://valleybazaar.org/"
+}
+],
+"licenses": [
+{
+"type": "MIT",
+"url": "https://github.com/jquery/jquery-color/blob/2.1.2/MIT-LICENSE.txt"
+}
+],
+"bugs": "https://github.com/yunap/traceit/issues",
+"homepage": "https://github.com/yunap/traceit",
+"docs": "https://github.com/yunap/traceit",
+"download": "https://github.com/yunap/traceit",
+"dependencies": {
+"jquery": ">=1.7",
+"raphael": ">=2.1"
+}
+}
