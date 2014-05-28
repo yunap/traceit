@@ -1,15 +1,16 @@
 {
 "name": "traceit",
-"title": "traceit",
-"description": "jQuery plugin for adding a dynamic trace to any element on a page.",
+"title": "traceit is a jQuery Plugin that lets you dynamically trace page elements.",
+"description": "Customizable, light, mobile-friendly and responsive jQuery plugin. traceit adds a dynamic trace to any element on a page; configure its stroke width, animation speed, stroke/fill color and opacity as well as hideCallback, endTraceCallback and onClick callback functions.
+",
 "keywords": [
 "trace",
 "animation"
 ],
-"version": "0.1.1",
+"version": "0.1.0",
 "author": {
 "name": "Yuna Portnoy",
-"url": "https://github.com/yunap/traceit"
+"url": "http://valleybazaar.org/"
 },
 "maintainers": [
 {
@@ -25,8 +26,8 @@
 }
 ],
 "bugs": "https://github.com/yunap/traceit/issues",
-"homepage": "https://github.com/yunap/traceit",
 "docs": "https://github.com/yunap/traceit",
+"demo": "http://valleybazaar.org/index.html#tracebox"
 "download": "https://github.com/yunap/traceit",
 "dependencies": {
 "jquery": ">=1.8",
