@@ -7,7 +7,7 @@ It was written using jQuery prototypal inheritance plugin boilerplate Authors: A
 
 **traceit.js** adds a dynamic trace to any element on a page; configure its stroke width, animation speed, stroke/fill color and opacity as well as hideCallback, endTraceCallback and onClick callback functions.
 
-Trace size adapts to contents. 
+v 1.0 Trace size does not adapt to contents. 
 
 Examples
 --------
