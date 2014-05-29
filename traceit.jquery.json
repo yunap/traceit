@@ -1,7 +1,7 @@
 {
     "name": "traceit",
     "title": "traceit is a jQuery Plugin that lets you dynamically trace page elements.",
-    "description": "Customizable, light, mobile-friendly and responsive jQuery plugin. Are you looking for a way to provide your user with a visual cue? Traceit lets you add a dynamic trace to any element on a page; configure its stroke width, animation speed, stroke or fill color and opacity as well as hideCallback, endTraceCallback and onClick callback functions.",
+    "description": "Customizable, light, mobile-friendly and responsive jQuery plugin. Are you looking for a way to provide your user with a visual cue? Traceit lets you add a dynamic trace to any element on a page; configure its stroke width, animation speed, stroke or fill color and opacity as well as onHide, onClick and onEndTrace callback functions.",
     "keywords": [
         "trace",
         "annotate",
