@@ -24,6 +24,7 @@ $('#elem').trace();
 //you can later refer to it by doing:
 var inst = $('#elem').data('trace');
 inst.myMethod();
+
 //or call
 $("#elem").trigger("myEvent");
 ```	
@@ -68,16 +69,19 @@ Methods can be called directly or by triggering the following events: ```hide.tr
 ```JavaScript
 //to hide the trace shape do:
 $("#elem").trigger("hide.trace");
+
 //or call hideTrace method directly:
 ints.hideTrace();
 
 //to show previously initialized trace shape do:
 $("#elem").trigger("show.trace");
+
 //or call showTrace method directly:
 inst.showTrace();
 
 //to replay trace animation do:
 $("#elem").trigger({ type: 'adjust.trace', adjustments: adjustments_object});
+
 //or call reTrace(opt) method directly:
 inst.reTrace(adjustments_object)
 ```
@@ -85,6 +89,7 @@ inst.reTrace(adjustments_object)
 To call the onClick callback function do:
 ```JavaScript
 $("#elem").trigger("click.trace");
+
 //or
 inst.click();
 ```
@@ -97,10 +102,16 @@ $("#elem").trigger("delete.trace");
 #### Callbacks
 Can I have callbacks? Sure. 
 ```JavaScript
-$('#elem').trace({  
-	onClick : function(){ console.log('triggered when user clicks on a trace shape.'); }, 
-	onHide : function(){ console.log('triggered when hide animation completes.'); },
-	onEndTrace: function() { console.log("triggered when trace animation completes."); },
+$('#elem').trace({
+    onClick: function () {
+        console.log('triggered when user clicks on a trace shape.');
+    },
+    onHide: function () {
+        console.log('triggered when hide animation completes.');
+    },
+    onEndTrace: function () {
+        console.log("triggered when trace animation completes.");
+    },
 });
 
 ```
