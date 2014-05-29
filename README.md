@@ -80,10 +80,13 @@ $("#elem").trigger("show.trace");
 inst.showTrace();
 
 //to replay trace animation do:
-$("#elem").trigger({ type: 'adjust.trace', adjustments: adjustments_object});
+$("#elem").trigger({
+    type: 'adjust.trace',
+    adjustments: adjustments_object
+});
 
 //or call reTrace(opt) method directly:
-inst.reTrace(adjustments_object)
+inst.reTrace(adjustments_object);
 ```
 
 To call the onClick callback function do:
