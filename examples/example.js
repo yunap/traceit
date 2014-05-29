@@ -31,14 +31,14 @@
 		e.preventDefault();
 		
 		$('#example2').trace({ 
-			trace_opt : { 
+			traceOpt : { 
 				'stroke': 'blue', 
 				'stroke-width': 2, 
 				'stroke-opacity': 1, 
 				'fill': '#00ff00', 
 				'fill-opacity': 0.2 
 			},
-			redrawspeed : 6000,
+			redrawSpeed : 6000,
 			trace_canvas_padding: 4
 		});		 
 	});
@@ -71,16 +71,16 @@
 		
 		$('#example4').trace(
 		{  
-		trace_opt : {  
+		traceOpt : {  
 				'stroke-width': 4, 
 				'stroke-opacity': .5
 		}, 
 	        onClick : function( me ) { 
 							alert('triggered when user clicks on a trace shape.');
-							me.options.shape.animate({opacity: 0}, 1000, function(){ me.HideTrace();}); 
+							me.options.shape.animate({opacity: 0}, 1000, function(){ me.hideTrace();}); 
 						}, 
-			hideCallback : function(){ alert('triggered when hide animation completes.'); },
-			endTraceCallback: function() { alert("triggered when trace animation completes."); },
+			onHide : function(){ alert('triggered when hide animation completes.'); },
+			onEndTrace: function() { alert("triggered when trace animation completes."); },
 		});
 		 
 	});

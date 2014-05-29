@@ -82,22 +82,22 @@ $('#example').trigger('adjust.trace');
 <div id="example" class="example"> #example </div>			
 </div>
 			
-<p>What can I configure? All options are optional. You can overwrite default options by initializing 'trace' instance with options object 'trace_opt'.
+<p>What can I configure? All options are optional. You can overwrite default options by initializing 'trace' instance with options object 'traceOpt'.
 </p>
 <div class="primary-content">
 <pre class="prettyprint">
 //Initialize a trace instance with options object.
 $('#example2').trace(
 { 
-	trace_opt : { 
+	traceOpt : { 
 		'stroke': 'blue', 
 		'stroke-width': 3, 
 		'stroke-opacity': 1, 
 		'fill': '#00ff00', 
 		'fill-opacity': 0.2
 	},
-	redrawspeed : 6000,
-	trace_canvas_padding: 4
+	redrawSpeed : 6000,
+	traceCanvasPadding: 4
 });
 </pre>
 </div>
@@ -148,19 +148,19 @@ $('#example32').trigger(
 //or trigger 'adjust.trace' event
 $('#example4').trace(
 {  
-	trace_opt : 
+	traceOpt : 
 	{  
 		'stroke-width': 4, 
 		'stroke-opacity': .5
 	},
 	onClick : function(me) { 
 		alert('triggered when user clicks on a trace shape.');
-		me.options.shape.animate({opacity: 0}, 1000, function(){ me.HideTrace(); }); 
+		me.options.shape.animate({opacity: 0}, 1000, function(){ me.hideTrace(); }); 
 	}, 
-	hideCallback : function() { 
+	onHide : function() { 
 		alert('triggered when hide animation completes.'); 
 	},
-	endTraceCallback: function() { 
+	onEndTrace: function() { 
 		alert("triggered when trace animation completes."); 
 	}
 });
@@ -171,6 +171,9 @@ $('#example4').trace(
 			<p><a id="trace_example4" href="#">click to trace</a> to call onClick callback function click on the shape.</p>
 			<div id="example4" class="example"> #example4 </div>		
 		</div>
+		
+	    <br>
+		<p>Resizing a window or pressing the escape key will redraw all the traces.</p>
 			
 		<div  class="footer">
 				<p>
