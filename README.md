@@ -1,18 +1,18 @@
-traceit.js
+jquery.traceit.js
 =======
 
 
-**traceit.js** is a jQuery plugin based on raphael.js that allows you dynamically trace page elements.
+**jquery.traceit.js** is a jQuery plugin based on raphael.js that allows you dynamically trace page elements.
 It was written using jQuery prototypal inheritance plugin boilerplate Authors: Alex Sexton & Scott Gonzalez.
 
-**traceit.js** adds a dynamic trace to any element on a page; configure its stroke width, animation speed, stroke/fill color and opacity as well as onHide, onEndTrace and onClick callback functions.
+**jquery.traceit.js** adds a dynamic trace to any element on a page; configure its stroke width, animation speed, stroke/fill color and opacity as well as onHide, onEndTrace and onClick callback functions.
 
 v 1.0 Trace size does not adapt to contents. 
 
 Examples
 --------
 
-[traceit.js examples](http://valleybazaar.org/index.html#tracebox)
+[jquery.traceit.js examples](http://valleybazaar.org/index.html#tracebox)
 
 Usage:
 ------
