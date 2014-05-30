@@ -87,17 +87,16 @@ $('#example').trigger('adjust.trace');
 <div class="primary-content">
 <pre class="prettyprint">
 //Initialize a trace instance with options object.
-$('#example2').trace(
-{ 
-	traceOpt : { 
-		'stroke': 'blue', 
-		'stroke-width': 3, 
-		'stroke-opacity': 1, 
-		'fill': '#00ff00', 
-		'fill-opacity': 0.2
-	},
-	redrawSpeed : 6000,
-	traceCanvasPadding: 4
+$('#example2').trace({
+    traceOpt: {
+        'stroke': 'blue',
+        'stroke-width': 3,
+        'stroke-opacity': 1,
+        'fill': '#00ff00',
+        'fill-opacity': 0.2
+    },
+    redrawSpeed: 6000,
+    traceCanvasPadding: 4
 });
 </pre>
 </div>
@@ -107,31 +106,28 @@ $('#example2').trace(
 <div id="example2" class="example"> #example2 </div>		
 </div>
 		
-<p>You can similarly set new options when calling reTrace method or when triggering 'adjust.trace' event</p>
+<p>You can similarly set new options when calling reTrace method or when triggering 'adjust.trace' event.
+Whether trace instance was initialized with options object or by calling: <code>$('#example32').trace({isVisible: false});</code>
+</p>
 <div class="primary-content">
 <pre class="prettyprint">
-//$('#example31').trace({ isVisible: false });
-var inst =  $('#example31').data('trace');
-inst.reTrace(
-{
-	'stroke': 'red', 
-	'stroke-width': 2, 
-	'stroke-opacity': 1, 
-	'isVisible' : 'true' 
+var inst = $('#example31').data('trace');
+inst.reTrace({
+    'stroke': 'red',
+    'stroke-width': 2,
+    'stroke-opacity': 1,
+    'isVisible': 'true'
 });
 
 //or trigger 'adjust.trace' event
-//$('#example32').trace({ isVisible: false });
-$('#example32').trigger(
-{ 
-	type: 'adjust.trace', 
-	adjustments: 
-		{ 
-		'stroke': '#aa0000', 
-		'stroke-width': 4, 
-		'stroke-opacity': 1 
-		}
-});	
+$('#example32').trigger({
+    type: 'adjust.trace',
+    adjustments: {
+        'stroke': '#aa0000',
+        'stroke-width': 4,
+        'stroke-opacity': 1
+    }
+});
 </pre>
 </div>
 
@@ -146,23 +142,25 @@ $('#example32').trigger(
 <pre class="prettyprint">
 
 //or trigger 'adjust.trace' event
-$('#example4').trace(
-{  
-	traceOpt : 
-	{  
-		'stroke-width': 4, 
-		'stroke-opacity': .5
-	},
-	onClick : function(me) { 
-		alert('triggered when user clicks on a trace shape.');
-		me.options.shape.animate({opacity: 0}, 1000, function(){ me.hideTrace(); }); 
-	}, 
-	onHide : function() { 
-		alert('triggered when hide animation completes.'); 
-	},
-	onEndTrace: function() { 
-		alert("triggered when trace animation completes."); 
-	}
+$('#example4').trace({
+    traceOpt: {
+        'stroke-width': 4,
+        'stroke-opacity': .5
+    },
+    onClick: function (me) {
+        alert('triggered when user clicks on a trace shape.');
+        me.options.shape.animate({
+            opacity: 0
+        }, 1000, function () {
+            me.hideTrace();
+        });
+    },
+    onHide: function () {
+        alert('triggered when hide animation completes.');
+    },
+    onEndTrace: function () {
+        alert("triggered when trace animation completes.");
+    }
 });
 </pre>
 </div>
