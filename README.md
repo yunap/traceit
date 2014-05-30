@@ -33,35 +33,36 @@ What can I configure? All options are optional. Here are the default options. Yo
 ```JavaScript
 $('#example2').trace({
     traceOpt: {
-      traceCanvasPadding: 10,
-      redrawSpeed: 3500,
-      traceDivPref: "_wrap",
-      traceCursor: 'pointer',
-      traceOpt: {
-        'stroke': 'yellow',
-        'stroke-width': 5,
-        'stroke-opacity': 1,
-        'fill': 'none',
-        'fill-opacity': 0,
-        'zindex': 9999
-      },
-      isVisible: true,
-      useRelativePositioning: false, // will position relative to the document by default
-      onHide: function () {
-        console.log("From hide Callback")
-      },
-      onEndTrace: function () {
-        console.log("From end Trace Callback")
-      },
-      onClick: function (me) {
-        me.options.shape.animate({
-          opacity: 0
-        }, 1000, function () {
-          me.hideTrace();
-        });
-      }
+        traceCanvasPadding: 10,
+        redrawSpeed: 3500,
+        traceDivPref: "_wrap",
+        traceCursor: 'pointer',
+        traceOpt: {
+            'stroke': 'yellow',
+            'stroke-width': 5,
+            'stroke-opacity': 1,
+            'fill': 'none',
+            'fill-opacity': 0,
+            'zindex': 9999
+        },
+        isVisible: true,
+        // will position relative to the document by default
+        useRelativePositioning: false, 
+        onHide: function () {
+            console.log("onHide callback was invoked.")
+        },
+        onEndTrace: function () {
+            console.log("onEndTrace callback was invoked.")
+        },
+        onClick: function (me) {
+            me.options.shape.animate({
+                opacity: 0
+            }, 1000, function () {
+                me.hideTrace();
+            });
+        }
     }
-  );
+);
 ```
 
 ####  Methods and Events
