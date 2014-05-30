@@ -32,35 +32,36 @@ $("#elem").trigger("myEvent");
 What can I configure? All options are optional. Here are the default options. You can overwrite each and every one of them. The ```trace``` constructor accepts the following ```traceOpt``` options object.
 ```JavaScript
 $('#example2').trace({
-        traceOpt: {
-            traceCanvasPadding: 10,
-            redrawSpeed: 3500,
-            traceDivPref: "_wrap",
-            traceCursor: 'pointer',
-            traceOpt: {
-                'stroke': 'yellow',
-                'stroke-width': 5,
-                'stroke-opacity': 1,
-                'fill': 'none',
-                'fill-opacity': 0,
-                'zindex': 9999
-            },
-            isVisible: true,
-            useRelativePositioning: false, // will position relative to the document by default
-            onHide: function () {
-                console.log("From hide Callback")
-            },
-            onEndTrace: function () {
-                console.log("From end Trace Callback")
-            },
-            onClick: function (me) {
-                me.options.shape.animate({
-                    opacity: 0
-                }, 1000, function () {
-                    me.hideTrace();
-                });
-            }
+    traceOpt: {
+      traceCanvasPadding: 10,
+      redrawSpeed: 3500,
+      traceDivPref: "_wrap",
+      traceCursor: 'pointer',
+      traceOpt: {
+        'stroke': 'yellow',
+        'stroke-width': 5,
+        'stroke-opacity': 1,
+        'fill': 'none',
+        'fill-opacity': 0,
+        'zindex': 9999
+      },
+      isVisible: true,
+      useRelativePositioning: false, // will position relative to the document by default
+      onHide: function () {
+        console.log("From hide Callback")
+      },
+      onEndTrace: function () {
+        console.log("From end Trace Callback")
+      },
+      onClick: function (me) {
+        me.options.shape.animate({
+          opacity: 0
+        }, 1000, function () {
+          me.hideTrace();
         });
+      }
+    }
+  );
 ```
 
 ####  Methods and Events
