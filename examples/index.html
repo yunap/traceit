@@ -1,91 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
 
-		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<head>
+    <meta charset="utf-8">
 
-		<title>jQuery.traceit.js example</title>
-		<meta name="description" content="Examples and documentation on jquery.traceit.js">
-		<meta name="author" content="Yuna">
-		<meta name="viewport" content="width=device-width; initial-scale=1.0">		
-		<link rel="stylesheet" href="style.css" type="text/css" />
-	</head>
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<body>
-		<div class="main">
-			<header>
-				<div><h1>Examples and Documentation on <span id="example_title">jquery.traceit.js</span></h1></div>
-			</header>
-			
+    <title>jQuery.traceit.js example</title>
+    <meta name="description" content="Examples and documentation on jquery.traceit.js">
+    <meta name="author" content="Yuna">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+    <div class="main">
+        <div class="main-in">
+            <h1>Examples and Documentation on <span id="example_title">jquery.traceit.js</span></h1>	
             <p>
-    		Ok, so you just saw the title traced. This is how you do it: 
-    		<br>
-    		Include the jquery.traceit.js script and it's dependencies jQuery (tested with jquery.js 1.10.2), Raphaël (tested with raphael.js 2.1.2) ) in your page.
-			</p>
-			
-<div class="primary-content">
-<pre class="prettyprint">			
+                Ok, so you just saw the title traced. This is how you do it:
+                <br>Include the jquery.traceit.js script and it's dependencies jQuery (tested with jquery.js 1.10.2), Raphaël (tested with raphael.js 2.1.2) ) in your page.
+            </p>
+            <div class="scroll-wrapper">
+                <div class="primary-content">
+                    <pre class="prettyprint">			
 &lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">&lt;/script>
 &lt;script src="../js/raphael.js">&lt;/script>
 &lt;script src="../js/jquery.traceit.js">&lt;/script>
 </pre>
-</div>
+                </div>
+            </div>
 
-<p>
-Or include raphael_traceit.min.js script and jquery.min.js. raphael_jquery.traceit.min.js is combined and minified raphael.js (v2.1.2) and jquery.traceit.js.
-</p>
-<div class="primary-content">
-<pre class="prettyprint">			
+            <p>
+                Or include raphael_traceit.min.js script and jquery.min.js. raphael_jquery.traceit.min.js is combined and minified raphael.js (v2.1.2) and jquery.traceit.js.
+            </p>
+
+            <div class="scroll-wrapper">
+                <div class="primary-content">
+                    <pre class="prettyprint">			
 &lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">&lt;/script>
 &lt;script src="../js/raphael_traceit.min.js">&lt;/script>
 </pre>
-</div>
-			
-<p>Choose an element you would like to trace. For instance:</p>			
-<div class="primary-content">
-<pre class="prettyprint">
+                </div>
+            </div>
+
+            <p>Choose an element you would like to trace. For instance:</p>
+            <div class="scroll-wrapper">
+                <div class="primary-content">
+                    <pre class="prettyprint">
 &lt;div id="example">Let's trace this element.&lt;/div>
 </pre>
-</div>
+                </div>
+            </div>
 
-<p>If you would like to see your element be traced immediately initialize a trace instance with:</p>
-<div class="primary-content">
-<pre class="prettyprint">
+            <p>If you would like to see your element be traced immediately initialize a trace instance with:</p>
+            <div class="primary-content scroll-wrapper">
+                <pre class="prettyprint">
 //Initialize a trace instance with:
 $('#example').trace();
 </pre>
-</div>
-			
+            </div>
 
-<p>Or initialize a trace instance with 'isVisible' option set to false. Then later in your code you can call reTrace({isVisible: true}) method
-or trigger its equivalent 'adjust.trace' event to start the animation.
-</p>
-<div class="primary-content">
-<pre class="prettyprint">
+
+            <p>Or initialize a trace instance with 'isVisible' option set to false. Then later in your code you can call reTrace({isVisible: true}) method or trigger its equivalent 'adjust.trace' event to start the animation.
+            </p>
+            <div class="primary-content scroll-wrapper">
+                <pre class="prettyprint">
 //Initialize a trace instance with isVisible set to false
-$('#example').trace({ isVisible: false });
+$('#example').trace({isVisible: false});
 
-//then later in your code you can call reTrace({ isVisible: true }) method
+//then later in your code you can call reTrace({isVisible: true}) method
 var inst =  $('#example').data('trace');
-inst.reTrace({ isVisible: true });
+inst.reTrace({isVisible: true});
 
 //or trigger its equivalent 'adjust.trace' event
 $('#example').trigger('adjust.trace');
 </pre>
-</div>
+            </div>
 
 
-<div class="content">
-<p>	To trace this element <a id="trace_example" href="#">click here</a>.</p>
-<div id="example" class="example"> #example </div>			
-</div>
-			
-<p>What can I configure? All options are optional. You can overwrite default options by initializing 'trace' instance with options object 'traceOpt'.
-</p>
-<div class="primary-content">
-<pre class="prettyprint">
+            <div class="content">
+                <p>To trace this element <a id="trace_example" href="#">click here</a>.</p>
+                <div id="example" class="example">#example</div>
+            </div>
+
+            <p>What can I configure? All options are optional. You can overwrite default options by initializing 'trace' instance with options object 'traceOpt'.
+            </p>
+            <div class="primary-content scroll-wrapper">
+                <pre class="prettyprint">
 //Initialize a trace instance with options object.
 $('#example2').trace({
     traceOpt: {
@@ -99,18 +102,21 @@ $('#example2').trace({
     traceCanvasPadding: 4
 });
 </pre>
-</div>
+            </div>
 
-<div class="content">
-<p><a id="trace_example2" href="#">click to trace</a>.</p>
-<div id="example2" class="example"> #example2 </div>		
-</div>
-		
-<p>You can similarly set new options when calling reTrace method or when triggering 'adjust.trace' event.
-Whether trace instance was initialized with options object or by calling: <code>$('#example32').trace({isVisible: false});</code>
-</p>
-<div class="primary-content">
-<pre class="prettyprint">
+            <div class="content">
+                <p><a id="trace_example2" href="#">click to trace</a>.</p>
+                <div id="example2" class="example">#example2</div>
+            </div>
+
+            <p>You can similarly set new options when calling reTrace method or when triggering 'adjust.trace' event.
+            </p>
+            <div class="primary-content scroll-wrapper">
+                <pre class="prettyprint">
+//some time earlier your code instantiated trace objects by doing:
+//$('#example31').trace({isVisible: false});
+//$('#example32').trace({isVisible: false});
+
 var inst = $('#example31').data('trace');
 inst.reTrace({
     'stroke': 'red',
@@ -129,17 +135,18 @@ $('#example32').trigger({
     }
 });
 </pre>
-</div>
+            </div>
 
-<div class="content">
-<p><a id="trace_example3" href="#">click to trace</a></p>
-<div id="example31" class="example"> #example3_1 </div>	<span id="example32" class="example3span"> #example3_2 </span>		
-</div>
-	
-<br>
-<p>Can I have callbacks? Sure. </p>
-<div class="primary-content">
-<pre class="prettyprint">
+            <div class="content">
+                <p><a id="trace_example3" href="#">click to trace</a>
+                </p>
+                <div id="example31" class="example">#example3_1</div>	<span id="example32" class="example3span"> #example3_2 </span>	
+            </div>
+
+            <br>
+            <p>Can I have callbacks? Sure.</p>
+            <div class="primary-content scroll-wrapper">
+                <pre class="prettyprint">
 
 //or trigger 'adjust.trace' event
 $('#example4').trace({
@@ -163,30 +170,30 @@ $('#example4').trace({
     }
 });
 </pre>
-</div>
+            </div>
 
-		<div class="content">
-			<p><a id="trace_example4" href="#">click to trace</a> to call onClick callback function click on the shape.</p>
-			<div id="example4" class="example"> #example4 </div>		
-		</div>
-		
-	    <br>
-		<p>Resizing a window or pressing the escape key will redraw all the traces.</p>
-			
-		<div  class="footer">
-				<p>
-					&copy; Copyright  by Yuna Portnoy
-				</p>
-		</div>
-		
-		
-	    
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-   <!-- <script src="../js/raphael.js"></script>
+            <div class="content">
+                <p><a id="trace_example4" href="#">click to trace</a> to call onClick callback function click on the shape.</p>
+                <div id="example4" class="example">#example4</div>
+            </div>
+
+            <br>
+            <p>Resizing a window or pressing the escape key will redraw all the traces.</p>
+
+
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; Copyright by Yuna Portnoy</p>
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <!-- <script src="../js/raphael.js"></script>
 		<script src="../js/jquery.traceit.js"></script> -->
-		<script src="../js/raphael_jquery.traceit.min.js"></script>
-		<script src="example.js"></script>
-		
-		<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=desert&callback=testing"></script>
-	</body>
+    <script src="../js/raphael_jquery.traceit.min.js"></script>
+    <script src="example.js"></script>
+
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=desert&callback=testing"></script>
+</body>
+
 </html>

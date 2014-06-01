@@ -1,81 +1,104 @@
 body {
-	background-color: #4B363D;
+    background-color: rgba(219, 211, 196, 1);
 }
-
 .main {
-  width: 70%;
-  padding: 40px;
-  margin-right: auto;
-  margin-left: auto;
-  background-color: rgba(238, 240, 231, 1);
-  border: 5px dashed #808080;
-  box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.05), 0px 0px 0.25em 0px rgba(0, 0, 0, 0.25) inset;
+    width: 70%;
+    padding: 40px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: rgba(238, 240, 231, 1);
+    border: 5px dashed #808080;
+    box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.05), 0px 0px 0.25em 0px rgba(0, 0, 0, 0.25) inset;
 }
-
+@media (max-width: 767px) {
+    .main {
+        width: 90%;
+        padding: 4px;
+        border: 2px dashed #808080;
+    }
+}
+.main-in {
+    max-width: 746px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
 p {
-  font-size: 1.2em;
-  font-weight: 300;
-  line-height: 1.25;
+    font-size: 1.2em;
+    font-weight: 300;
+    line-height: 1.25;
 }
+.scroll-wrapper {
+    border: 1px solid black;
+    background-color: #333;
+    max-width: 740px;
+    overflow-x: scroll;
+    /*making the scroll have momentum on mobile devices
+    http://css-tricks.com/snippets/css/momentum-scrolling-on-ios-overflow-elements
+    */
+    -webkit-overflow-scrolling: touch;
+}
+/*hiding the scrollbar*/
 
-.primary-content  {
+.scroll-wrapper::-webkit-scrollbar {
+    display: none;
+}
+.primary-content {
     max-width: 700px;
     padding: 20px;
-    display: block; 
+    display: block;
     background-color: #333
 }
-
-pre.prettyprint{
-	border: 0;
+pre.prettyprint {
+    border: 0;
 }
-
-.content  {
+.content {
     max-width: 700px;
     margin-right: auto;
-  	margin-left: auto;
-  	margin-top: 20px;
-  	margin-bottom: 40px;
+    margin-left: auto;
+    margin-top: 20px;
+    margin-bottom: 40px;
 }
-
-#trace_example,  #trace_example2, #trace_example3, #trace_example4, a, a:visited {
-	
+#trace_example,
+#trace_example2,
+#trace_example3,
+#trace_example4,
+a,
+a:visited {
     padding: 0px 2px;
     font-size: 1.2em;
     text-decoration: none;
     background: none repeat scroll 0% 0% #F7F7BB;
     color: #330;
 }
-
-
 #example_title {
-	padding: 20px;
-	text-align: center;
-	height: 70px;	
+    padding: 20px;
+    text-align: center;
+    height: 70px;
 }
-
-.example  {
-	width: 300px;
-	height: 50px;
-	padding: 20px;
-	text-align: center;	
-	border: 1px solid #E1E1E8;
+.example {
+    width: 300px;
+    height: 50px;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #E1E1E8;
 }
-
-#example31  {
-	width: 150px;
-	height: 100px;
-	padding: 20px;
-	text-align: center;	
+@media (max-width: 767px) {
+    .example {
+        width: 86%;
+    }
 }
-
-.example3span  {
-//	margin-right: 200px;
-//	float: right;
-	padding: 30px;
-	text-align: center;	
+#example31 {
+    width: 150px;
+    height: 100px;
+    padding: 20px;
+    text-align: center;
 }
-
-.footer{
-	margin-top: 40px;
-	text-align: center;	
+.example3span {
+    padding: 30px;
+    text-align: center;
+}
+.footer {
+    margin-top: 40px;
+    text-align: center;
 }
