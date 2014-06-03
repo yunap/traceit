@@ -9,7 +9,8 @@
                 isVisible: false
             });
             $('#example31').trace({
-                isVisible: false
+                'isVisible': false,
+                'traceCanvasPadding': 8
             });
             $('#example32').trace({
                 isVisible: false
@@ -40,10 +41,12 @@
                 'stroke-width': 2,
                 'stroke-opacity': 1,
                 'fill': '#00ff00',
-                'fill-opacity': 0.2
+                'fill-opacity': 0.2,
+                'gap-point': 'top_left',
+                'title': "see, this is example2! Click to hide."
             },
             redrawSpeed: 6000,
-            trace_canvas_padding: 4
+            traceCanvasPadding: 6
         });
     });
 
@@ -57,6 +60,7 @@
             'stroke': '#880000',
             'stroke-width': 2,
             'stroke-opacity': 1,
+            'arrow-end': 'classic-wide-long',
             'isVisible': 'true'
         });
 
@@ -66,7 +70,9 @@
             adjustments: {
                 'stroke': '#aa0000',
                 'stroke-width': 4,
-                'stroke-opacity': 1
+                'stroke-opacity': 1,
+                'stroke-dasharray': '--..',
+                'gap-point': 'bottom_right'
             }
         });
 

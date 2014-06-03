@@ -86,20 +86,23 @@ $('#example').trigger('adjust.trace');
             </div>
 
             <p>What can I configure? All options are optional. You can overwrite default options by initializing 'trace' instance with options object 'traceOpt'.
+               See complete list of trace options below.
             </p>
             <div class="primary-content scroll-wrapper">
-                <pre class="prettyprint">
+<pre class="prettyprint">
 //Initialize a trace instance with options object.
 $('#example2').trace({
     traceOpt: {
-        'stroke': 'blue',
-        'stroke-width': 3,
-        'stroke-opacity': 1,
-        'fill': '#00ff00',
-        'fill-opacity': 0.2
-    },
+	'stroke': 'blue',
+	'stroke-width': 3,
+	'stroke-opacity': 1,
+	'fill': '#00ff00',
+	'fill-opacity': 0.2,
+	'gap-point': 'top_left',
+	'title': "see, this is example2! Click to hide."
+	},
     redrawSpeed: 6000,
-    traceCanvasPadding: 4
+    traceCanvasPadding: 6
 });
 </pre>
             </div>
@@ -119,19 +122,22 @@ $('#example2').trace({
 
 var inst = $('#example31').data('trace');
 inst.reTrace({
-    'stroke': 'red',
-    'stroke-width': 2,
-    'stroke-opacity': 1,
-    'isVisible': 'true'
+	'stroke': '#880000',
+	'stroke-width': 2,
+	'stroke-opacity': 1,
+	'arrow-end': 'classic-wide-long',
+	'isVisible': 'true'
 });
 
 //or trigger 'adjust.trace' event
 $('#example32').trigger({
-    type: 'adjust.trace',
-    adjustments: {
-        'stroke': '#aa0000',
-        'stroke-width': 4,
-        'stroke-opacity': 1
+	type: 'adjust.trace',
+	adjustments: {
+		'stroke': '#aa0000',
+		'stroke-width': 4,
+		'stroke-opacity': 1,
+		'stroke-dasharray': '--..',
+		'gap-point': 'bottom_right'
     }
 });
 </pre>
@@ -177,9 +183,33 @@ $('#example4').trace({
                 <div id="example4" class="example">#example4</div>
             </div>
 
+            <p>The list of trace options</p>
+            <div class="primary-content scroll-wrapper">
+                <pre class="prettyprint">
+/********************************************************************************************************************
+arrow-end		string		arrowhead on the end of the path. The format for string is 
+					type[-width[-length]]. 
+					Possible types: classic, block, open, oval, diamond, none, 
+					width: wide, narrow, midium, 
+					length: long, short, midium.
+cursor			string		CSS type of the cursor
+fill			string 		colour, gradient or image
+fill-opacity		number 
+gap-point		string		["top","top_left","top_right","bottom","bottom_left","bottom_right"] 
+			or number	0 - 100, where 0 and 100 both mean "top" (@12 o'clock position), 50 is "bottom" (@6pm), 
+							25 is "top_right" (@3pm) etc.
+opacity			number 
+stroke			string 		stroke colour
+stroke-dasharray	string 		[“”, “-”, “.”, “-.”, “-..”, “. ”, “- ”, “--”, “- .”, “--.”, “--..”]
+stroke-linecap		string 		[“butt”, “square”, “round”]
+stroke-opacity		number 
+stroke-width		number 		stroke width in pixels, default is '1'
+title 			string 		will create tooltip with a given text
+**********************************************************************************************************************/	
+</pre>
+            </div>
             <br>
             <p>Resizing a window or pressing the escape key will redraw all the traces.</p>
-
 
         </div>
     </div>
