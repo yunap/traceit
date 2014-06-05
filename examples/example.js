@@ -21,8 +21,6 @@
 
     $("#trace_example").click(function(e) {
 
-        e.preventDefault();
-
         //var inst =  $('#example').data('trace');
         //inst.reTrace({ isVisible: true });
         //or call:
@@ -32,8 +30,6 @@
 
 
     $("#trace_example2").click(function(e) {
-
-        e.preventDefault();
 
         $('#example2').trace({
             traceOpt: {
@@ -52,8 +48,6 @@
 
 
     $("#trace_example3").click(function(e) {
-
-        e.preventDefault();
 
         var inst1 = $('#example31').data('trace');
         inst1.reTrace({
@@ -79,8 +73,6 @@
     });
 
     $("#trace_example4").click(function(e) {
-
-        e.preventDefault();
 
         $('#example4').trace({
             traceOpt: {

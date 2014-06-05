@@ -59,17 +59,14 @@ pre.prettyprint {
     margin-top: 20px;
     margin-bottom: 40px;
 }
-#trace_example,
-#trace_example2,
-#trace_example3,
-#trace_example4,
-a,
-a:visited {
+
+.trace_btn {
     padding: 0px 2px;
     font-size: 1.2em;
     text-decoration: none;
     background: none repeat scroll 0% 0% #F7F7BB;
     color: #330;
+    cursor: pointer;
 }
 #example_title {
     padding: 20px;
