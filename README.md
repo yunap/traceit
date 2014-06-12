@@ -9,6 +9,8 @@ It was written using jQuery prototypal inheritance plugin boilerplate Authors: A
 
 v 1.0 Trace size does not adapt to contents. 
 
+Plays nicely with Backbone.js and RequireJS
+
 Examples
 --------
 
