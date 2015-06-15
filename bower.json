@@ -1,0 +1,40 @@
+{
+  "name": "traceit",
+  "version": "1.0.0",
+  "main": [ "./js/jquery.traceit.js" ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/yunap/traceit.git"
+  },
+  "ignore":
+  [
+    "README*",
+    "LICENSE*",
+    "**/*.sass",
+    "**/*.coffee",
+    "**/sample.*",
+    "**/rainbow.js",
+    "**/rainbow.css",
+    "**/jquery.js",
+    "**/jquery.css",
+    "samples",
+    "spec",
+    "bourbon",
+    "neat",
+    "packages",
+    "images",
+    "Cakefile*",
+    "Rakefile*",
+    "Gemfile*",
+    ".git*",
+    ".travis*",
+    "*bower.json",
+    "*jquery.json",
+    "index*"
+  ],
+  "dependencies": {
+    "jquery": ">=1.10",
+    "raphael" : ">=2.1"
+  }
+}
+
