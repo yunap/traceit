@@ -1,6 +1,6 @@
 {
   "name": "traceit",
-  "version": "1.0.0",
+  "version": "0.1.4",
   "main": [ "js/jquery.traceit.js" ],
   "ignore":
   [
