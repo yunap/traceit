@@ -6,7 +6,29 @@
  * Author: Alex Sexton, Scott Gonzalez
  * Further changes: @addyosmani
  * Licensed under the MIT license
- */
+ *
+ *********************************************************************************************************************
+ arrow-end		  string		arrowhead on the end of the path. The format for string is
+                          type[-width[-length]].
+                          Possible types: classic, block, open, oval, diamond, none,
+                          width: wide, narrow, midium,
+                          length: long, short, midium.
+ cursor			    string		CSS type of the cursor
+ fill			      string 		colour, gradient or image
+ fill-opacity   number
+ gap-point		  string		[\"top\",\"top_left\",\"top_right\",\"bottom\",\"bottom_left\",\"bottom_right\"]
+                          or number	0 - 100, where 0 and 100 both mean \"top\" (@12 o'clock position), 50 is “bottom“ (@6pm),
+                          25 is \"top_right\" (@3pm) etc.
+  opacity			  number
+  stroke			    string 		stroke colour
+  stroke-dasharray		string 		[“”, “-”, “.”, “-.”, “-..”, “. ”, “- ”, “--”, “- .”, “--.”, “--..”]
+  stroke-linecap		  string 		[“butt”, “square”, “round”]
+  stroke-opacity		  number
+  stroke-width		    number 		stroke width in pixels, default is '1'
+  title 			        string 		will create tooltip with a given text
+ **********************************************************************************************************************
+ **/
+
 (function($) {
     $.each(['show', 'hide'], function(i, ev) {
         var el = $.fn[ev];
@@ -174,6 +196,7 @@
             }
 
             //if reTrace is called on the ellement that was hidden by window resize
+            //or retrace is forced for an existing shape
             if ($("#" + this.options.wrapIdToTrace).length !== 0) {
 
                 if (this.options.shape !== null && allShapes[this.options.wrapIdToTrace].stable == true) {
@@ -181,6 +204,17 @@
                     $("#" + this.options.wrapIdToTrace).show();
                     allShapes[this.options.wrapIdToTrace].stable = false;
 
+                    if( this.options.traceOpt.redrawSpeed != undefined ) {
+                      this.options.redrawSpeed = this.options.traceOpt.redrawSpeed;
+                    }
+
+                    if( this.options.traceOpt.traceCanvasPadding != undefined ) {
+                      this.options.traceCanvasPadding = this.options.traceOpt.traceCanvasPadding;
+                    }
+
+                    if( this.options.traceOpt.traceCursor != undefined ){
+                      this.options.traceCursor = this.options.traceOpt.traceCursor;
+                    }
                     var newShape = animateProgressiveDrawing({
                             guidePath: this.options.shape
                         }, this.options.redrawSpeed, this.options.traceOpt,
@@ -199,6 +233,19 @@
             } else {
 
                 this.options.isVisible = true;
+
+                if( this.options.traceOpt.redrawSpeed != undefined ) {
+                  this.options.redrawSpeed = this.options.traceOpt.redrawSpeed;
+                }
+
+                if( this.options.traceOpt.traceCanvasPadding != undefined ) {
+                  this.options.traceCanvasPadding = this.options.traceOpt.traceCanvasPadding;
+                }
+
+                if( this.options.traceOpt.traceCursor != undefined ){
+                  this.options.traceCursor = this.options.traceOpt.traceCursor;
+                }
+
                 this._build();
             }
         },
@@ -256,12 +303,15 @@
 
             this.$elem.bind('delete.trace', function(event) {
                 if (me.options.shape !== undefined) {
-                    this.options.shape.hide().remove();
-                    $("#" + this.options.wrapIdToTrace).hide().remove();
+                    console.log(me.options, me.options.wrapIdToTrace);
+                    //me.options.shape.hide().remove();
+                    //$("#" + me.options.wrapIdToTrace).hide().remove();
+                    me.options.shape.remove();
+                    $("#" + me.options.wrapIdToTrace).remove();
                 }
-                // remove from allShapes array :	
-                allShapes.splice(this.options.wrapIdToTrace, 1);
-                this.$elem.removeData("trace");
+                // remove from allShapes array :
+                delete allShapes[me.options.wrapIdToTrace];
+                me.$elem.removeData("trace");
 
             });
 
@@ -279,7 +329,7 @@
 
         thisShape.data("name", id);
         thisShape.node.onmouseover = function() {
-            this.style.cursor = 'pointer';
+            this.style.cursor = me.options.traceCursor; //'pointer'
         };
 
         thisShape.node.onclick = function() {
@@ -288,12 +338,12 @@
     }
 
     //for version 0.1 of the plugin we are going to have just one 'type' of SVG shape:
-    //an ellipse like path with an opening at the "gap-point" location. 
-    //example: 'gap-point' : 'top_left' The trace will start at point 1 (@85% of ellipse length) 
+    //an ellipse like path with an opening at the "gap-point" location.
+    //example: 'gap-point' : 'top_left' The trace will start at point 1 (@85% of ellipse length)
     //continue to point 2 (@75%), then path will get interupted and connect with point3 at 95% of a slightly larger ellipse.
-    //If traceit plugin takes off we can then add other shapes/animations.	
+    //If traceit plugin takes off we can then add other shapes/animations.
     function traceShape(paper, wrapper_element_id, canvasPadding, speed, opt, callback) {
-        //get the element we are going to trace 
+        //get the element we are going to trace
         var wrapper_element = $("#" + wrapper_element_id);
         var padding = 0;
         var padding2 = 0;
@@ -302,7 +352,7 @@
             padding = padding2 = canvasPadding / 2;
         }
 
-        //find top coner of the traced element 
+        //find top coner of the traced element
         var xv = canvasPadding;
         var yv = canvasPadding;
         var width = parseInt(wrapper_element.outerWidth());
@@ -497,7 +547,7 @@
     };
 
 
-    // 
+    //
     $.traceit('trace', myObject);
 
     // Usage:
