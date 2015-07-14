@@ -303,7 +303,6 @@
 
             this.$elem.bind('delete.trace', function(event) {
                 if (me.options.shape !== undefined) {
-                    console.log(me.options, me.options.wrapIdToTrace);
                     //me.options.shape.hide().remove();
                     //$("#" + me.options.wrapIdToTrace).hide().remove();
                     me.options.shape.remove();
