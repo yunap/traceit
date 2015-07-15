@@ -16,6 +16,8 @@ Examples
 
 [jquery.traceit.js examples](http://valleybazaar.org/index.html#tracebox)
 
+[Now available as Angularjs directive](https://github.com/yunap/angular-traceit)
+
 Usage:
 ------
 
